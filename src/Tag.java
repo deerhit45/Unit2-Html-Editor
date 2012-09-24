@@ -4,6 +4,7 @@ public class Tag {
 private String name;		//name of the tag
 private String parameters;	//text for the parameter section
 private String text;		//text parameter for the tag
+protected int level;
 
 private ArrayList<Tag> children; 
 
@@ -13,6 +14,7 @@ public Tag(String name, String parameter, String text) {
 	this.name = name;
 	this.parameters = parameter;
 	this.text = text;
+	level = 0;
 }
 
 public String toString()//not correct yet, one tab per level right now
@@ -21,11 +23,17 @@ public String toString()//not correct yet, one tab per level right now
 	toreturn = GetOpener();
 	if(children.size() > 0)
 	{
+		toreturn += "\r\n";
 		for(Tag child : children)
 		{
-			toreturn += "\t" + child.toString();
+			for(int i = 0; i < level; i++)
+			{
+				toreturn += "\t";
+			}
+			toreturn += child.toString();
+			toreturn += "\r\n";
 		}
-		toreturn += "\r\n" + GetCloser();
+		toreturn += GetCloser();
 	}
 	else
 	{
@@ -51,5 +59,6 @@ private String GetCloser()
 public void addchild(Tag child)
 {
 	children.add(child);
+	child.level = this.level + 1;
 }
 }
