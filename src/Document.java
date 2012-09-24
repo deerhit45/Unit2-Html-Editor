@@ -14,12 +14,12 @@ private Date timestamp;
 private Tag treeOfTags;
 private final int closetagoffset = 3;
 
-//public static void main(String[] args)
-//{
-//	String testhtml = "<html><body><h1>My First Heading</h1><p>My first paragraph.</p></body></html>";
-//	Document doc = new Document("test",testhtml);
-//	System.out.println("");
-//}
+public static void main(String[] args)
+{
+	String testhtml = "<html><body><h1>My First Heading</h1><p>My first paragraph.</p></body></html>";
+	Document doc = new Document("test",testhtml);
+	System.out.println(doc.toString());
+}
 
 public Document(String name,String htmlstring) 
 {
