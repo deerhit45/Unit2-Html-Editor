@@ -12,7 +12,7 @@ public class SaveCommand implements Command {
 			  // Create file 
 			  FileWriter fstream = new FileWriter( fileName + ".html");
 			  BufferedWriter out = new BufferedWriter(fstream);
-			  out.writer;
+			  out.write("This is a test");
 			  //Close the output stream
 			  out.close();
 			  }catch (Exception ee){//Catch exception if any

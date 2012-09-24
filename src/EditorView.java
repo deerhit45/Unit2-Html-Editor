@@ -1,6 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
+import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -20,11 +20,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Font;
 import javax.swing.JSeparator;
+import java.io.*;
 
 
 public class EditorView extends JFrame {
 
 	private JPanel contentPane;
+	private CommandInvoker command;
 
 	/**
 	 * Launch the application.
@@ -46,6 +48,11 @@ public class EditorView extends JFrame {
 	 * Create the frame.
 	 */
 	public EditorView() {
+		this.command = new CommandInvoker();
+		final JTextArea textAreaErrorLog = new JTextArea(3, 10);
+		JTextArea textArea = new JTextArea();
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
@@ -75,6 +82,10 @@ public class EditorView extends JFrame {
 		mntmSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Save");
+				//maybe use a try
+				textAreaErrorLog.setText("Saving Current File");
+				command.runCommand("Save");
+				//stuff below needs to be in a class
 			}
 		});
 		mnFile.add(mntmSave);
@@ -146,13 +157,13 @@ public class EditorView extends JFrame {
 		tabbedPane.addTab("New tab", null, panel, null);
 		panel.setLayout(new BorderLayout(0, 0));
 		
-		JTextArea textArea = new JTextArea();
+		
 		textArea.setFont(new Font("Courier New", Font.PLAIN, 13));
 		textArea.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		JScrollPane scrollPane = new JScrollPane(textArea); 
 		panel.add(scrollPane, BorderLayout.CENTER);
 		
-		JTextArea textAreaErrorLog = new JTextArea(3, 10);
+		
 		textAreaErrorLog.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		textAreaErrorLog.setEditable(false);
 		JScrollPane scrollPaneErrorLog = new JScrollPane(textAreaErrorLog); 
