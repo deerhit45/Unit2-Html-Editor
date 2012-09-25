@@ -74,6 +74,8 @@ public class EditorView extends JFrame {
 		mntmOpen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Open");
+				textAreaErrorLog.setText("Opening existing file");
+				command.runCommand("Open");
 			}
 		});
 		mnFile.add(mntmOpen);
