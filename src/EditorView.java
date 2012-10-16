@@ -49,8 +49,6 @@ public class EditorView extends JFrame {
 	 */
 	public EditorView() {
 		this.command = new CommandInvoker();
-		final JTextArea textAreaErrorLog = new JTextArea(3, 10);
-		JTextArea textArea = new JTextArea();
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -159,17 +157,24 @@ public class EditorView extends JFrame {
 		tabbedPane.addTab("New tab", null, panel, null);
 		panel.setLayout(new BorderLayout(0, 0));
 		
-		
-		textArea.setFont(new Font("Courier New", Font.PLAIN, 13));
-		textArea.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		JScrollPane scrollPane = new JScrollPane(textArea); 
-		panel.add(scrollPane, BorderLayout.CENTER);
+		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
+		panel.add(tabbedPane_1, BorderLayout.SOUTH);
+		final JTextArea textAreaErrorLog = new JTextArea(3, 10);
 		
 		
 		textAreaErrorLog.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		textAreaErrorLog.setEditable(false);
-		JScrollPane scrollPaneErrorLog = new JScrollPane(textAreaErrorLog); 
-		panel.add(scrollPaneErrorLog, BorderLayout.SOUTH);
+		JScrollPane scrollPaneErrorLog = new JScrollPane(textAreaErrorLog);
+		tabbedPane_1.addTab("New tab", null, scrollPaneErrorLog, null);
+		
+		JTextArea textArea_1 = new JTextArea();
+		tabbedPane_1.addTab("New tab", null, textArea_1, null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		panel.add(scrollPane, BorderLayout.CENTER);
+		
+		JTextArea textArea = new JTextArea();
+		scrollPane.setViewportView(textArea);
 	}
 
 }
