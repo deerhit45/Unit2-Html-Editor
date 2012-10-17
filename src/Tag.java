@@ -27,11 +27,7 @@ public class TreeCollection extends Collection
 	}
 }
 
-public interface Traversal
-{
-	void isDone();
-	void next();
-}
+
 
 public class TreeTraverser
 {
