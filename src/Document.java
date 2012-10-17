@@ -11,7 +11,7 @@ import java.util.Date;
 public class Document {
 private String name;
 private Date timestamp;
-private Tag treeOfTags;
+private Collection datacollection;
 private final int closetagoffset = 3;
 
 public static void main(String[] args)
@@ -25,9 +25,10 @@ public Document(String name,String htmlstring)
 {
 	this.name = name;
 	timestamp = new Date();
-	CreateDocument(htmlstring);
+	datacollection = new TreeCollection();
+    datacollection.createCollection(htmlstring);
 }
-public String getName() {
+public String getName() {S
 	return name;
 }
 public void setName(String name)
@@ -39,52 +40,17 @@ public Date getTimestamp() {
 }
 public void updateDocument(String html)
 {
-	CreateDocument(html);
-}
-
-private void CreateDocument(String htmlstring)
-{
-	StringBuilder stripedhtml = new StringBuilder(htmlstring.replaceAll("\r \n \t", ""));
-	treeOfTags = CreateFromString(stripedhtml);
-}
-
-private Tag CreateFromString(StringBuilder htmlstring)
-{
-	String name;
-	String parameters;
-	String text;
-	
-    int firstspace = htmlstring.indexOf(" ");
-    int firstclose = htmlstring.indexOf(">");
-    int nextopen = htmlstring.indexOf("<",firstclose);
-    
-    if(firstclose < firstspace)
-    {
-    	name = htmlstring.substring(1,firstclose);
-    	parameters = "";
-    }
-    else
-    {	
-    	name = htmlstring.substring(1,firstspace);
-    	parameters = htmlstring.substring(firstspace,firstclose);
-    }
-	text = htmlstring.substring(firstclose + 1,nextopen);
-	
-	Tag toReturn = new Tag(name,parameters,text);
-	
-	htmlstring.delete(0,nextopen);
-	while(!htmlstring.substring(0,name.length() + closetagoffset).equals("</" + name + ">"))
-	{		
-		toReturn.addchild(CreateFromString(htmlstring));
-	}
-	
-	htmlstring.delete(0,name.length() + closetagoffset);
-	return toReturn;
+    datacollection.createCollection(html);
 }
 
 public String toString()
 {
-	return treeOfTags.toString();
+	return datacollection.toString();
+}
+
+public string SaveToMemento()
+{
+    return Collection.toString();
 }
 
 }

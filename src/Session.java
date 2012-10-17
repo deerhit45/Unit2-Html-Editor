@@ -1,8 +1,9 @@
+//gonna need Stack lib?
 
 public class Session {
 private Document doc;
 private String errorLog;
-
+private Statck<Memento> mementos;
 public Session(String name, String html,String error) {
 	super();
 	doc = new Document(name,html);
@@ -35,5 +36,19 @@ public void updateDocument(String html)
 public String getDoc()
 {
 	return doc.toString();
+}
+
+private addMemento()
+{
+    mementos.Push((doc.saveToMemento());
+}
+
+private RestoreFromMemento()
+{
+    try
+    {
+        updateDocument(mementos.pop);
+    }
+    catch;//catch empty stack
 }
 }
