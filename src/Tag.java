@@ -1,5 +1,44 @@
 import java.util.ArrayList;
 
+public interface Collection
+{
+	void addIterator();
+	void removeIterator();
+	void createCollection();
+}
+
+public class TreeCollection extends Collection
+{
+	private Tree HTMLTags;
+	private Traversal traverse;
+	public void CreateFromString(string in)
+	{
+		//build a list of the tags from the given string	
+	}
+	
+	private void addIterator()
+	{
+		//create and add a new iterator to this object for iteration
+	}
+	
+	private void removeIterator()
+	{
+		//remove the iterator from this object
+	}
+}
+
+public interface Traversal
+{
+	void isDone();
+	void next();
+}
+
+public class TreeTraverser
+{
+	private HTMLTag root;
+	private HTMLTag children;
+}
+
 public class Tag {
 private String name;		//name of the tag
 private String parameters;	//text for the parameter section
