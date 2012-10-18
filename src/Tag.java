@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+
+//old tag class used in release one
 public class Tag {
 private String name;		//name of the tag
 private String parameters;	//text for the parameter section

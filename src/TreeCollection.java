@@ -1,7 +1,7 @@
-
+//interface for iterators that can be used to iterate though a collection
 public class TreeCollection extends Collection
 {
-	private Tree HTMLTags;
+	private Tree HTMLTags;  
 	private Traversal traverse;
 	public void CreateFromString(string in)
 	{

@@ -1,7 +1,7 @@
-
+//an interface for collections that store html data 
 public interface Collection
 {
-	void addIterator();
-	void removeIterator();
-	void createCollection();
+	void addIterator();         //adds an iterator for moving though a collcetion
+	void removeIterator();      //removes an iterator 
+	void createCollection(string);    //creates the collection from a string
 }

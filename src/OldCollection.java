@@ -1,3 +1,4 @@
+//the old collection used in the  first release
 public class OldCollection extends Collection
 {
     private Tag root;
