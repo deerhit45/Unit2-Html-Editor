@@ -1,7 +1,8 @@
 //the old collection used in the  first release
-public class OldCollection extends Collection
+public class OldCollection implements Collection
 {
     private Tag root;
+    private int closetagoffset = 3;
     public void AddIterator()
     {
         //add an iterator to the collection
@@ -12,7 +13,7 @@ public class OldCollection extends Collection
         //remove an iterator from the collection
     }
     
-    public void CreateCollection(string html)
+    public void CreateCollection(String html)
     {
         CreateDocument(html);
     }
@@ -57,8 +58,20 @@ public class OldCollection extends Collection
         return toReturn;
     }
     
-    public string toString()
+    public String toString()
     {
         return root.toString();
     }
+
+	@Override
+	public void addIterator() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void createCollection(String str) {
+		// TODO Auto-generated method stub
+		
+	}
 }

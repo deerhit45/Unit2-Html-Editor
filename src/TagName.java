@@ -1,15 +1,15 @@
 //the concrete base of the decorator pattern has the name of the tag
-public class TagName extends HTMLTag
+public class TagName implements HTMLTag
 {
-    private string name;
+    private String name;
     //default constructor that takes in the name of the tag
-    public TagName(string namein)
+    public TagName(String namein)
     {
         name = namein;
     }
     
     //returns the text of the tag
-    public string getText()
+    public String getText()
     {
         //should return the formatted html that can be decorated with a decorator
         return name;

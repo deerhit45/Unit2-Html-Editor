@@ -1,21 +1,29 @@
 //interface for iterators that can be used to iterate though a collection
-public class TreeCollection extends Collection
+public class TreeCollection implements Collection
 {
-	private Tree HTMLTags;  
+	//private Tree HTMLTags;  
 	private Traversal traverse;
-	public void CreateFromString(string in)
+	public void CreateFromString(String in)
 	{
 		//build a list of the tags from the given string	
 	}
-	
-	private void addIterator()
-	{
-		//create and add a new iterator to this object for iteration
+
+	@Override
+	public void addIterator() {
+		// TODO Auto-generated method stub
+		
 	}
-	
-	private void removeIterator()
-	{
-		//remove the iterator from this object
+
+	@Override
+	public void removeIterator() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void createCollection(String str) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

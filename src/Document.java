@@ -17,7 +17,6 @@ private Date timestamp;         //the timestamp of teh data
 private Collection datacollection;//collection of html data, can choose from multiple concrete implementations of collection
 private final int closetagoffset = 3; //some offset constant for something
 
-#ifdef DEBUG
 //main for debugging document creation and stuff
 public static void main(String[] args)
 {
@@ -25,7 +24,6 @@ public static void main(String[] args)
 	Document doc = new Document("test",testhtml);
 	System.out.println(doc.toString());
 }
-#endif
 
 //Constructor for a Document, needs a name and a html string to build a new docuemnt
 public Document(String name,String htmlstring) 
@@ -65,9 +63,9 @@ public String toString()
 }
 
 //returns the state of the object to a caretaker
-public string SaveToMemento()
+public Memento SaveToMemento()
 {
-    return Collection.toString();
+    return new Memento(datacollection.toString());
 }
 
 }

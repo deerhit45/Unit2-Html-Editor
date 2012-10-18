@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.AbstractButton;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -72,7 +73,6 @@ public class EditorView extends JFrame {
 		mntmOpen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Open");
-				textAreaErrorLog.setText("Opening existing file");
 				command.runCommand("Open");
 			}
 		});
@@ -83,7 +83,6 @@ public class EditorView extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Save");
 				//maybe use a try
-				textAreaErrorLog.setText("Saving Current File");
 				command.runCommand("Save");
 				//stuff below needs to be in a class
 			}

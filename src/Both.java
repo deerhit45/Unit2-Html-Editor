@@ -1,8 +1,8 @@
 //decorator that has bot a parameter and an attribute
-public class Both extends TagComponents
+public class Both implements TagComponents
 {
     //construcor
-    public both()
+    public void both()
     {
     }
     

@@ -1,12 +1,12 @@
 //decorator for an html tag that als ohas a parameter
-public class Parameter extends TagComponents
+public class Parameter implements TagComponents
 {
-    private string parameter;   //the parameter of the html line
+    private String parameter;   //the parameter of the html line
     
     //copnstructer hat ths hteiod  as parameter
-    public parameter(string parameterin)
+    public Parameter(String parameterin)
     {
-        parameter = paramterin;
+        parameter = parameterin;
     }
     
     //the returns the dtext of the string paramter tag

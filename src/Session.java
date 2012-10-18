@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 //gonna need Stack lib?
 
 //session is the class that holds the data for each of the tabs in the tab veiw
@@ -7,7 +9,7 @@
 public class Session {
 private Document doc;       //the document object that holds html data
 private String errorLog;    //the error log that holds error data for incorreclty formed html
-private Statck<Memento> mementos;   //stack of mementos to restore from when an undo is called
+private Stack<Memento> mementos;   //stack of mementos to restore from when an undo is called
 
 //constructor for the session
 //name is the name of the doucment
@@ -54,18 +56,18 @@ public String getDoc()
 }
 
 //adds a new snapshot of the document to restore to
-private addMemento()
+private void addMemento()
 {
-    mementos.Push((doc.saveToMemento());
+    mementos.push((doc.SaveToMemento()));
 }
 
 //restores the state of document to the most recient snapshot
-private RestoreFromMemento()
+private void RestoreFromMemento()
 {
     try
     {
-        updateDocument(mementos.pop);
+        updateDocument(mementos.pop().GetState());
     }
-    catch;//catch empty stack
+    finally{};//catch empty stack
 }
 }

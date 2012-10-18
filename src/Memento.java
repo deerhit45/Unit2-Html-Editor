@@ -16,7 +16,7 @@ public class Memento
     }
     
     //changes the state fo the memento to the provided state
-    public SetState(String state)
+    public void SetState(String state)
     {
         snapshot = state;
     }
@@ -24,6 +24,6 @@ public class Memento
     //returns the state stored in the memento
     public String GetState()
     {
-        return state;
+        return snapshot;
     }
 }
